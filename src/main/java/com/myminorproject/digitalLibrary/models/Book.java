@@ -39,6 +39,8 @@ public class Book {
     @UpdateTimestamp
     private Date updatedOn;
 
+    private Double price;
+
     //Book has a relation with the transaction[1:n], One-to-Many relationship.
     @OneToMany(mappedBy = "transaction_book")
     private List<Transaction> transactionList;

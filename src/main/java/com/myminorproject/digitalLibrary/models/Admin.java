@@ -2,11 +2,13 @@ package com.myminorproject.digitalLibrary.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+
 import java.util.Date;
 import java.util.List;
 
 @Entity(name = "admins")
-@Builder
+@Builder  //(builderClassName = "Builder", toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
 public class Admin {
@@ -20,6 +22,7 @@ public class Admin {
     @Column(unique = true, nullable = false)
     private String email;
 
+    @CreationTimestamp
     private Date createdOn;
 
     //Admin has a relation with the transaction[1:n], One-to-Many relationship.

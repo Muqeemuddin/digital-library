@@ -2,6 +2,7 @@ package com.myminorproject.digitalLibrary.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 import java.util.List;
@@ -23,6 +24,7 @@ public class Author {
     @Column(unique = true, nullable = false)
     private String email;
 
+    @CreationTimestamp
     private Date createdOn;
 
     //Author has a relation with the Book[1:n], One-to-Many relationship.
