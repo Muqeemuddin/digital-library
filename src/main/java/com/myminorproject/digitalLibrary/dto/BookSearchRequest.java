@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SearchRequest {
+public class BookSearchRequest {
 
     private String searchKey;
 

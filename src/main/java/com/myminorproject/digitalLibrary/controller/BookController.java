@@ -3,7 +3,7 @@ package com.myminorproject.digitalLibrary.controller;
 import com.myminorproject.digitalLibrary.dto.AddBookRequest;
 import com.myminorproject.digitalLibrary.dto.BookResponse;
 import com.myminorproject.digitalLibrary.dto.DeleteRequest;
-import com.myminorproject.digitalLibrary.dto.SearchRequest;
+import com.myminorproject.digitalLibrary.dto.BookSearchRequest;
 import com.myminorproject.digitalLibrary.models.Book;
 import com.myminorproject.digitalLibrary.services.BookService;
 import jakarta.validation.Valid;
@@ -36,9 +36,9 @@ public class BookController {
     // API to fetch all the books or books based on some criteria.
 
     @GetMapping("/getBooks")
-    public List<BookResponse> findAllBooks(@RequestBody SearchRequest searchRequest) throws Exception {
+    public List<BookResponse> findAllBooks(@RequestBody BookSearchRequest bookSearchRequest) throws Exception {
 
-        if(searchRequest.getSearchKey()==null || searchRequest.getSearchValue() == null){
+        if(bookSearchRequest.getSearchKey()==null || bookSearchRequest.getSearchValue() == null){
             try{
                 List<Book> bookList =  bookService.getBooks();
                 return bookResponse.from(bookList);
@@ -47,7 +47,7 @@ public class BookController {
                 return new ArrayList<>();
             }
         }else{
-            List<Book> bookList = bookService.getBooks(searchRequest.getSearchKey(), searchRequest.getSearchValue());
+            List<Book> bookList = bookService.getBooks(bookSearchRequest.getSearchKey(), bookSearchRequest.getSearchValue());
             return bookResponse.from(bookList);
 
         }
