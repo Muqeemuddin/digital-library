@@ -5,6 +5,8 @@ import com.myminorproject.digitalLibrary.repository.AdminDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AdminService {
 
@@ -13,5 +15,9 @@ public class AdminService {
 
     public void createAdmin(Admin admin){
         adminDao.save(admin);
+    }
+
+    public List<Admin> getAdmins(){
+        return adminDao.findAll();
     }
 }

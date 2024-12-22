@@ -1,5 +1,6 @@
 package com.myminorproject.digitalLibrary.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -27,6 +28,7 @@ public class Book {
     // We need to do mapping here.
     @ManyToOne
     @JoinColumn
+    @JsonBackReference
     private Author book_author;
 
     @Enumerated(value = EnumType.STRING)

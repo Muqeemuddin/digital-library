@@ -11,6 +11,8 @@ import java.util.List;
 @Builder  //(builderClassName = "Builder", toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class Admin {
 
     @Id

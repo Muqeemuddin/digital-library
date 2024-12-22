@@ -1,5 +1,6 @@
 package com.myminorproject.digitalLibrary.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -29,5 +30,6 @@ public class Author {
 
     //Author has a relation with the Book[1:n], One-to-Many relationship.
     @OneToMany(mappedBy = "book_author")
+    @JsonManagedReference
     private List<Book> bookList;
 }

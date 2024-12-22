@@ -1,10 +1,15 @@
 package com.myminorproject.digitalLibrary.services;
 
+import com.myminorproject.digitalLibrary.dto.BookResponse;
 import com.myminorproject.digitalLibrary.models.Author;
 import com.myminorproject.digitalLibrary.models.Book;
 import com.myminorproject.digitalLibrary.repository.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BookService {
@@ -24,6 +29,12 @@ public class BookService {
 
         // Save the book
         bookDao.save(book);
+    }
+
+    public List<Book> getBooks(){
+
+        return bookDao.findAll();
+
     }
 
 }
