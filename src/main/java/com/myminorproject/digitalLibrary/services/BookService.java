@@ -3,6 +3,7 @@ package com.myminorproject.digitalLibrary.services;
 import com.myminorproject.digitalLibrary.dto.BookResponse;
 import com.myminorproject.digitalLibrary.models.Author;
 import com.myminorproject.digitalLibrary.models.Book;
+import com.myminorproject.digitalLibrary.models.Genre;
 import com.myminorproject.digitalLibrary.repository.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,7 +62,7 @@ public class BookService {
 //                return bookDao.findByAuthor(searchValue);
 
             case "genre":
-                return bookDao.findByGenre(searchValue);
+                return bookDao.findByGenre(Genre.valueOf(searchValue));
 
             default:
                 throw new Exception("Invalid search Key "+ searchKey);

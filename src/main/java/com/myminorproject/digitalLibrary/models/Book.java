@@ -34,6 +34,12 @@ public class Book {
     @Enumerated(value = EnumType.STRING)
     private Genre genre;
 
+    // This field is important to identify if the book is available or not.
+    // Null -> available, NotNull -> issued to someone.
+    @ManyToOne
+    @JoinColumn
+    private Student student;
+
 
     @CreationTimestamp
     private Date createdOn;

@@ -30,6 +30,11 @@ public class Student {
 
     private Integer age;
 
+    // This filed is to keep track of number of books borrowed by the student.
+    // It will be helpful in validating to issue a new book.
+    @OneToMany(mappedBy = "student")
+    private List<Book> bookList;
+
     @CreationTimestamp
     private Date createdOn;
 

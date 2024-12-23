@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AdminService {
@@ -19,5 +20,11 @@ public class AdminService {
 
     public List<Admin> getAdmins(){
         return adminDao.findAll();
+    }
+
+    public Admin getAdmin(String adminId){
+        Optional<Admin> admin = adminDao.findById(Integer.valueOf(adminId));
+        return admin.orElseGet(Admin::new);
+
     }
 }
