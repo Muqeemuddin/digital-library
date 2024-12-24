@@ -28,5 +28,4 @@ public class TransactionRequest {
     @NotNull
     private TransactionType transactionType;
 
-
 }

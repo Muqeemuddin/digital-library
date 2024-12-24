@@ -160,6 +160,11 @@ public class TransactionService {
             throw new Exception("Invalid Book Id " + transactionRequest.getBookId());
         }
 
+//  1.1 Validate if this book is assigned to the student
+        if(book.getStudent() == null){
+            throw new Exception("Book was not assigned to student :" + student.getName());
+        }
+
 //  2. Get the corresponding issue transaction
 
         Transaction borrowedTransaction = transactionDao.findTransactionByStudentAndBookAndTransactionTypeOrderByTransIdDesc(
