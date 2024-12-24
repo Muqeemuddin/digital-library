@@ -27,7 +27,7 @@ public class BookController {
 
     @PostMapping("/addBook")
     public ResponseEntity<String> addBook(@RequestBody  AddBookRequest addBookRequest){
-        bookService.createBook(addBookRequest.to());
+        bookService.createOrUpdateBook(addBookRequest.to());
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Book Added Successfully!");
 

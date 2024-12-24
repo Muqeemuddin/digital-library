@@ -11,7 +11,7 @@ public class StudentService {
     @Autowired
     private StudentDao studentDao;
 
-    public void createStudent(Student student){
+    public void createOrUpdateStudent(Student student){
         studentDao.save(student);
     }
 

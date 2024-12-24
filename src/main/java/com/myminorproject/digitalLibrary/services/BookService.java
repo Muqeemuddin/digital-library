@@ -23,12 +23,13 @@ public class BookService {
     @Autowired
     private AuthorService authorService;
 
-    public void createBook(Book book){
+    public void createOrUpdateBook(Book book){
 
         Author author = authorService.getOrCreate(book.getBook_author());
 
         // Set the author
         book.setBook_author(author);
+
 
         // Save the book
         bookDao.save(book);
