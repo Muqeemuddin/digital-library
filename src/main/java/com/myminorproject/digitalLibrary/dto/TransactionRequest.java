@@ -27,10 +27,6 @@ public class TransactionRequest {
     private String adminId;
     @NotNull
     private TransactionType transactionType;
-//    public Transaction to() throws Exception {
-//        return Transaction.builder().transactionType(this.transactionType).build();
-//    }
-
 
 
 }

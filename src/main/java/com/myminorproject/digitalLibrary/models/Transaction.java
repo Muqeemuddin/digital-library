@@ -23,15 +23,15 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn(name="transaction_student_id", referencedColumnName = "studentId")
-    private Student transaction_student;
+    private Student student;
 
     @ManyToOne
     @JoinColumn(name="transaction_book_id", referencedColumnName = "bookId")
-    private Book transaction_book;
+    private Book book;
 
     @ManyToOne
     @JoinColumn(name="transaction_admin_id", referencedColumnName = "adminId")
-    private Admin transaction_admin;
+    private Admin admin;
 
     @Setter
     @Enumerated(value = EnumType.STRING)
@@ -40,6 +40,7 @@ public class Transaction {
     @Enumerated(value = EnumType.STRING)
     private TransactionType transactionType;
 
+    private double fine;
 
     @CreationTimestamp
     private Date createdOn;

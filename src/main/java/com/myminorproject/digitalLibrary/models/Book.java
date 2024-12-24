@@ -50,7 +50,7 @@ public class Book {
     private Double price;
 
     //Book has a relation with the transaction[1:n], One-to-Many relationship.
-    @OneToMany(mappedBy = "transaction_book")
+    @OneToMany(mappedBy = "book")
     private List<Transaction> transactionList;
 
 

@@ -28,7 +28,7 @@ public class Admin {
     private Date createdOn;
 
     //Admin has a relation with the transaction[1:n], One-to-Many relationship.
-    @OneToMany(mappedBy = "transaction_admin")
+    @OneToMany(mappedBy = "admin")
     private List<Transaction> transactionList;
 
 }

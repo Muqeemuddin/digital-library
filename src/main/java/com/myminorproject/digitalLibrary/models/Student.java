@@ -42,6 +42,6 @@ public class Student {
     private Date updatedOn;
 
     //Student has a relation with the transaction[1:n], One-to-Many relationship.
-    @OneToMany(mappedBy = "transaction_student")
+    @OneToMany(mappedBy = "student")
     private List<Transaction> transactionList;
 }
