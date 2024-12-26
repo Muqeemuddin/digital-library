@@ -42,17 +42,6 @@ public class TransactionService {
                 ? borrowBook(transactionRequest)
                 : returnBook(transactionRequest);
 
-//        String bookId = transactionRequest.getBookId();
-//        String adminId = transactionRequest.getAdminId();
-//        Optional<Book> book = bookDao.findById(Integer.valueOf(bookId));
-//        Optional<Admin> admin = adminDao.findById(Integer.valueOf(adminId));
-//        Transaction transaction = Transaction.builder().transaction_student(studentDao.findByRollNo(transactionRequest.getRollNo()))
-//                .transaction_book(book.get())
-//                .transaction_admin(admin.get())
-//                .transactionType(transactionRequest.getTransactionType()).build();
-//        transaction.setTransactionStatus(TransactionStatus.SUCCESS);
-//        transactionDao.save(transaction);
-//        return ResponseEntity.status(HttpStatus.CREATED).body("Transaction Complete.");
     }
 
     /**
@@ -209,7 +198,6 @@ public class TransactionService {
 
 
         return transaction.getTransactionID();
-        //return null;
     }
 
     private double calculateFine(Date borrowedOn) {
