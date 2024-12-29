@@ -28,4 +28,8 @@ public class AdminResponse {
         return admins.stream().map(admin -> new AdminResponse(admin.getAdminId(), admin.getName(), admin.getEmail()))
                 .collect(Collectors.toList());
     }
+
+    public AdminResponse from(Admin admin){
+        return new AdminResponse(admin.getAdminId(), admin.getName(), admin.getEmail());
+    }
 }

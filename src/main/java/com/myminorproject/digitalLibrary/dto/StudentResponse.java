@@ -32,10 +32,10 @@ public class StudentResponse {
     @NotBlank
     private Integer age;
 
-    private List<Book> bookList;
+    //private List<Book> bookList;
 
     public StudentResponse from(Student student){
         return  new StudentResponse(
-                student.getName(), student.getEmail(), student.getRollNo(), student.getAge(), student.getBookList());
+                student.getName(), student.getEmail(), student.getRollNo(), student.getAge());
     }
 }

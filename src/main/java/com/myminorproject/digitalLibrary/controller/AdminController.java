@@ -2,6 +2,7 @@ package com.myminorproject.digitalLibrary.controller;
 
 import com.myminorproject.digitalLibrary.dto.AdminResponse;
 import com.myminorproject.digitalLibrary.dto.CreateAdminRequest;
+import com.myminorproject.digitalLibrary.dto.SearchAdminRequest;
 import com.myminorproject.digitalLibrary.models.Admin;
 import com.myminorproject.digitalLibrary.services.AdminService;
 import jakarta.validation.Valid;
@@ -31,9 +32,16 @@ public class AdminController {
     }
 
     @GetMapping("/getAdmins")
-    public List<AdminResponse> getAdmin(){
+    public List<AdminResponse> getAdmins(){
         List<Admin> admins = adminService.getAdmins();
         return adminResponse.from(admins);
+
+    }
+
+    @GetMapping("/getAdmin")
+    public AdminResponse getAdmin(@RequestBody @Valid SearchAdminRequest searchAdminRequest){
+        Admin admin = adminService.getAdmin(searchAdminRequest.getSearchValue());
+        return adminResponse.from(admin);
 
     }
 }

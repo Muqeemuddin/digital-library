@@ -16,7 +16,7 @@ public class StudentService {
         studentDao.save(student);
     }
 
-
+    @Cacheable(value = "Student", key = "#searchValue")
     public Student getStudent(String searchKey, String searchValue) throws Exception{
         if (searchKey.equals("rollNo")) {
             return studentDao.findByRollNo(searchValue);

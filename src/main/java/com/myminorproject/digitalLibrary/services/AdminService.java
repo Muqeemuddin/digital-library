@@ -4,7 +4,6 @@ import com.myminorproject.digitalLibrary.models.Admin;
 import com.myminorproject.digitalLibrary.repository.AdminDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,6 +23,7 @@ public class AdminService {
         return adminDao.findAll();
     }
 
+    @Cacheable(value = "Admin", key = "#adminId")
     public Admin getAdmin(String adminId){
         Optional<Admin> admin = adminDao.findById(Integer.valueOf(adminId));
         return admin.orElseGet(Admin::new);
