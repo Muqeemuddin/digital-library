@@ -3,6 +3,7 @@ package com.myminorproject.digitalLibrary.services;
 import com.myminorproject.digitalLibrary.models.Student;
 import com.myminorproject.digitalLibrary.repository.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +15,7 @@ public class StudentService {
     public void createOrUpdateStudent(Student student){
         studentDao.save(student);
     }
+
 
     public Student getStudent(String searchKey, String searchValue) throws Exception{
         if (searchKey.equals("rollNo")) {

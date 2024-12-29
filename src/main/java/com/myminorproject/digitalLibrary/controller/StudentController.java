@@ -2,6 +2,7 @@ package com.myminorproject.digitalLibrary.controller;
 
 
 import com.myminorproject.digitalLibrary.dto.AddStudentRequest;
+import com.myminorproject.digitalLibrary.dto.StudentResponse;
 import com.myminorproject.digitalLibrary.dto.StudentSearchRequest;
 import com.myminorproject.digitalLibrary.models.Student;
 import com.myminorproject.digitalLibrary.services.StudentService;
@@ -18,6 +19,9 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    @Autowired
+    private StudentResponse studentResponse;
+
     @PostMapping("/createStudent")
     public ResponseEntity<String> createStudent(@RequestBody @Valid AddStudentRequest addStudentRequest){
 
@@ -27,7 +31,8 @@ public class StudentController {
     }
 
     @GetMapping("/getStudent")
-    public Student getStudent(@RequestBody @Valid StudentSearchRequest studentSearchRequest) throws Exception{
-        return studentService.getStudent(studentSearchRequest.getSearchKey(),studentSearchRequest.getSearchValue());
+    public StudentResponse getStudent(@RequestBody @Valid StudentSearchRequest studentSearchRequest) throws Exception{
+         Student student = studentService.getStudent(studentSearchRequest.getSearchKey(),studentSearchRequest.getSearchValue());
+         return studentResponse.from(student);
     }
 }
